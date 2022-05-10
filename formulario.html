@@ -12,56 +12,110 @@
     <link href="style.css" rel="stylesheet" />
     <title>Suscripción</title>
     <script>
-      $(function()
+      $(function()//main
       {
           $(".btnEnviar").click(function()
           {
               let nombre = $(".txtNombre").val();
+              
               if(!nombre)
               {
                   alert("Debe especificar el nombre");
                   $(".txtNombre").focus();
-              }
-              if($(".txtEmail").val().indexOf('@', 0) == -1 || $(".txtEmail").val().indexOf('.', 0) == -1)
-              {
-                  alert('El correo electrónico introducido no es válido.');
-                  return false;
+                  
               }
           });
-          let letrasnombre = 'qwertyuiopasdfghjklñzxcvbnmQWERTYUIOPASDFGHJKLÑZXCVBNM ÁÉÍÓÚáéíóú';
-          $(".txtNombre").keypress(function(e)
+  
+          $(".btnEnviar").click(function()
           {
-              let caracter = String.fromCharCode(e.which);
-              if(letrasnombre.indexOf(caracter) < 0)
-                  return false;
-          })
-          let letrasapellido = 'qwertyuiopasdfghjklñzxcvbnmQWERTYUIOPASDFGHJKLÑZXCVBNM ÁÉÍÓÚáéíóú';
-          $(".txtApellido").keypress(function(e)
+              let apellido = $(".txtApellido").val();
+              
+              if(!apellido)
+              {
+                  alert("Debe especificar el apellido");
+                  $(".txtApellido").focus();
+                  
+              }
+          });
+  
+          $(".btnEnviar").click(function()
           {
-              let caracter = String.fromCharCode(e.which);
-              if(letrasapellido.indexOf(caracter) < 0)
-                  return false;
-          })
+              let rut = $(".txtRun").val();
+              
+              if(!rut)
+              {
+                  alert("Debe especificar el run");
+                  $(".txtRun").focus();
+                  
+              }
+          });
+  
+          $(".btnEnviar").click(function()
+          {
+              let dv = $(".txtDv").val();
+              
+              if(!dv)
+              {
+                  alert("Debe especificar el digito verificador");
+                  $(".txtDv").focus();
+                  
+              }
+          });
+  
+          $(".btnEnviar").click(function()
+          {           
+              if($(".txtEmail").val().indexOf('@', 0) == -1 || $(".txtEmail").val().indexOf('.', 0) == -1)
+              {
+                alert('El correo electrónico introducido no es correcto.');
+                return false;
+              }
+          });
+  
+          $(".btnEnviar").click(function()
+          {
+              let direccion = $(".txtDireccion").val();
+              
+              if(!direccion)
+              {
+                  alert("Debe especificar la dirección");
+                  $(".txtDireccion").focus();
+                  
+              }
+          });
+  
+          let letras = 'qwertyuiopasdfghjklñzxcvbnmQWERTYUIOPASDFGHJKLÑZXCVBNM ÁÉÍÓÚáéíóú';
+              $(".txtNombre").keypress(function(e)
+              {
+                  let caracter = String.fromCharCode(e.which);
+                  if(letras.indexOf(caracter) < 0)
+                      return false;
+  
+              })
+              $(".txtApellido").keypress(function(e)
+              {
+                  let caracter = String.fromCharCode(e.which);
+                  if(letras.indexOf(caracter) < 0)
+                      return false;
+  
+              })
           let numeros = '0123456789';
-          $(".txtRut").keypress(function(e)
-          {
-              let caracter = String.fromCharCode(e.which);
-              if(numeros.indexOf(caracter) < 0)
-                  return false;
-          })
+              $(".txtRun").keypress(function(e)
+              {
+                  let caracter = String.fromCharCode(e.which);
+                  if(numeros.indexOf(caracter) < 0)
+                      return false;
+  
+              })
+  
           let dv = '0123456789Kk';
-          $(".txtDv").keypress(function(e)
-          {
-              let caracter = String.fromCharCode(e.which);
-              if(dv.indexOf(caracter) < 0)
-                  return false;
-          })
-          
-          
-
-      }); // cierre
-
-  </script>
+              $(".txtDv").keypress(function(e)
+              {
+                  let caracter = String.fromCharCode(e.which);
+                  if(dv.indexOf(caracter) < 0)
+                      return false;
+              })
+      });
+      </script>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: black;">
@@ -110,9 +164,9 @@
       <!--Formulario-->
       <div class="row">
         <div class="text-center mt-4">
-            <h3>Ingreso de persona</h3>
+            <h3>Suscripción al boletín de noticias</h3>
         </div>
-    </div>
+      </div>
     <!--Rut-->
     <div class="row">
         <div class="col-md-1 offset-md-2">
@@ -185,8 +239,10 @@
         <div class="col-md-1 offset-md-2">
         </div>
         <div class="col-md-6">
-            <button name="btnCancelar" class="btnCancelar btn-danger">Cancelar</button>
-            <button name="btnEnviar" class="btnEnviar btn-success">Enviar</button>
+            <button type="button" class="btnCancelar btn btn-danger ms-auto">
+              <a href="principal.html" class="text-light">Cancelar</a>
+            </button>
+            <button type="submit" class="btnEnviar btn btn-primary ms-auto ">Enviar</button>
         </div>
     </div>
 </div>

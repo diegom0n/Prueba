@@ -12,31 +12,32 @@
     <link href="style.css" rel="stylesheet" />
     <title>Inicio Sesión</title>
     <script>
-      $(function()
-      {
-          $(".btnEnviar").click(function()
-            {
-              let rut = $(".txtRut").val();
-              let clave = $(".txtClave").val();
-              if(!rut)
-              {
-                alert("Debe especificar el rut");
-                $(".txtRut").focus();
-              }
-              else if(!clave)
-			        {
-				        alert("Debe especificar la contraseña");
-				        $(".txtClave").focus();
-			        }  
-			      });
-          let digitosrut = '0123456789Kk';
-          $(".txtRut").keypress(function(e)
-          {
-              let caracter = String.fromCharCode(e.which);
-              if(digitosrut.indexOf(caracter) < 0)
-                  return false;
-          })
-      }); // cierre
+	  $(function() 
+        {
+        $(".btnEnviar").click(function()
+        {
+			    let email = $("#email").val();        
+			    if(!email)
+			  {
+				  alert("Debe rellenar este campo");
+				  $("#email").focus();
+			  }
+			    else if(email.length<13){
+				  alert("El correo electronico debe tener un minimo de 13 caracteres");
+			  }
+			    else if($("#email").val().indexOf('@', 0) == -1 || $("#email").val().indexOf('.', 0) == -1){
+          alert('El correo electrónico introducido no es correcto.');
+          $("#email").focus();
+			  }
+			  });
+			  let correo = 'qwertyuiopasdfghjklzxcvbnmñQWERTYUIOPASDFGHJKLZXCVBNMÑ@.1234567890_-';
+			  $("#email").keypress(function(e)
+			  {
+				let caracter = String.fromCharCode(e.which);
+				if(correo.indexOf(caracter) < 0)
+					return false;
+			  })     
+			}); 
 
   </script>
 </head>
@@ -85,12 +86,11 @@
       </form>
     </div>
   </nav>
-  <!--logo centrao-->
-  <section class="h-100">
+  <!--logo centrado-->
+	<section class="h-100">
 		<div class="container h-100">
 			<div class="row justify-content-sm-center h-100">
 				<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
-
 					<br>
 					<br>
 					<div style="width:100%;text-align:center;">
@@ -100,58 +100,28 @@
 					</div>
 					<br>
 					<br>
+							<h1 class="fs-4 card-title fw-bold mb-4">Olvido su Contraseña</h1>
+							<form method="POST" class="needs-validation" novalidate="" autocomplete="off">
+								<div class="mb-3">
+									<label class="mb-2 text-light" for="email">Correo Electronico</label>
+									<input id="email" type="email" class="form-control" name="email" value="" required autofocus>
+								</div>
 
-              <!--Iniciar sesión-->
-              <div class="row">
-                <div class="text-center mt-4">
-                  <h2>Inicio de Sesión</h2>
-                </div>
-              </div>
-      
-              <!--Rut-->
-              <div class="row mt-3">
-                  <div class="col-md-1 offset-md-2">
-                  </div>
-                    <div class="col-md-6">
-                        <h5>Rut</h5>
-                        <input name="txtRut" class="txtRut form-control"
-                               placeholder="Ingrese su Rut">
-                    </div>
-              </div>
-              <!--Clave-->
-              <div class="row mt-3">
-                <div class="col-md-1 offset-md-2">
-                </div>
-                  <div class="col-md-6">
-                    <h5>Contraseña</h5>
-                    <input type="text" name="txtClave" class="txtClave form-control"
-                    placeholder="Ingrese su contraseña">
-                  </div>
-              </div>
-              <!--Botones-->
-              <div class="row mt-3">
-                <div class="col-md-1 offset-md-2">
-                </div>
-                  <div class="col-md-6">
-                    <button type="submit" class="btnEnviar btn btn-primary ms-auto ">
-                      Iniciar Sesión
-                    </button>
-                  </div>
-                    <div class="row mt-3">
-                      <div class="col-md-1 offset-md-2">
-                      </div>
-                        <div class="col-md-6">
-                          <a href="claveolvidada.html" class="float-end text-light">
-                            ¿Olvido su contraseña?
-                          </a>
-                        </div>
-                    </div>
-                </div>
-  
-        </div>
-      </div>
-    </div>
-  </section>
+								<div class="d-flex align-items-center">
+									<button  type="submit" class="btnEnviar btn-primary ms-auto">
+										Enviar Link	
+									</button>
+								</div>
+							</form>
+						</div>
+						<div class="card-footer py-3 border-0">
+							<div class="text-center text-light">
+								¿Recuerda su contraseña? <a href="login.html" class="text-light">Iniciar Sesión</a>
+							</div>
+						</div>
+					</div>
+		</div>
+	</section>
 
 
 </body>
