@@ -17,6 +17,10 @@
           $(".btnEnviar").click(function()
           {
               let nombre = $(".txtNombre").val();
+              let apellido = $(".txtApellido").val();
+              let rut = $(".txtRut").val();
+              let dv = $(".txtDv").val();
+              let direccion = $(".txtDireccion").val();
               
               if(!nombre)
               {
@@ -24,58 +28,30 @@
                   $(".txtNombre").focus();
                   
               }
-          });
-  
-          $(".btnEnviar").click(function()
-          {
-              let apellido = $(".txtApellido").val();
-              
-              if(!apellido)
+              else if(!apellido)
               {
                   alert("Debe especificar el apellido");
                   $(".txtApellido").focus();
                   
               }
-          });
-  
-          $(".btnEnviar").click(function()
-          {
-              let rut = $(".txtRun").val();
-              
-              if(!rut)
+              else if(!rut)
               {
-                  alert("Debe especificar el run");
-                  $(".txtRun").focus();
+                  alert("Debe especificar el rut");
+                  $(".txtRut").focus();
                   
               }
-          });
-  
-          $(".btnEnviar").click(function()
-          {
-              let dv = $(".txtDv").val();
-              
-              if(!dv)
+              else if(!dv)
               {
                   alert("Debe especificar el digito verificador");
                   $(".txtDv").focus();
                   
               }
-          });
-  
-          $(".btnEnviar").click(function()
-          {           
-              if($(".txtEmail").val().indexOf('@', 0) == -1 || $(".txtEmail").val().indexOf('.', 0) == -1)
+              else if($(".txtEmail").val().indexOf('@', 0) == -1 || $(".txtEmail").val().indexOf('.', 0) == -1)
               {
                 alert('El correo electrónico introducido no es correcto.');
                 return false;
               }
-          });
-  
-          $(".btnEnviar").click(function()
-          {
-              let direccion = $(".txtDireccion").val();
-              
-              if(!direccion)
+              else if(!direccion)
               {
                   alert("Debe especificar la dirección");
                   $(".txtDireccion").focus();
@@ -99,7 +75,7 @@
   
               })
           let numeros = '0123456789';
-              $(".txtRun").keypress(function(e)
+              $(".txtRut").keypress(function(e)
               {
                   let caracter = String.fromCharCode(e.which);
                   if(numeros.indexOf(caracter) < 0)
