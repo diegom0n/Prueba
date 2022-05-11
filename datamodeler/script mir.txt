@@ -1,0 +1,147 @@
+CREATE TABLE detalle (
+    id_detalle           VARCHAR2(20) NOT NULL,
+    fecha                DATE NOT NULL,
+    cantidad             NUMBER(20, 20) NOT NULL,
+    venta_id_venta       VARCHAR2(20) NOT NULL,
+    producto_id_producto VARCHAR2(20) NOT NULL
+);
+
+ALTER TABLE detalle ADD CONSTRAINT detalle_pk PRIMARY KEY ( id_detalle );
+
+CREATE TABLE envio (
+    id_envio       VARCHAR2(20),
+    venta_id_venta VARCHAR2(20) NOT NULL,
+    envio_id       NUMBER NOT NULL
+);
+
+CREATE UNIQUE INDEX envio__idx ON
+    envio (
+        venta_id_venta
+    ASC );
+
+ALTER TABLE envio ADD CONSTRAINT envio_pk PRIMARY KEY ( envio_id );
+
+CREATE TABLE medio_de_pago (
+    id_pago        VARCHAR2(20) NOT NULL,
+    cliente        VARCHAR2(20) NOT NULL,
+    trabajador     VARCHAR2(20) NOT NULL,
+    venta_id_venta VARCHAR2(20) NOT NULL
+);
+
+ALTER TABLE medio_de_pago ADD CONSTRAINT medio_de_pago_pk PRIMARY KEY ( id_pago );
+
+CREATE TABLE producto (
+    id_producto VARCHAR2(20) NOT NULL,
+    nombre_p    VARCHAR2(20) NOT NULL,
+    precio      NUMBER(20, 20) NOT NULL,
+    stock       VARCHAR2(20) NOT NULL
+);
+
+ALTER TABLE producto ADD CONSTRAINT producto_pk PRIMARY KEY ( id_producto );
+
+CREATE TABLE tipo_de_pro (
+    id_producto          VARCHAR2(20) NOT NULL,
+    nombre_tipo          VARCHAR2(20) NOT NULL,
+    producto_id_producto VARCHAR2(20) NOT NULL
+);
+
+ALTER TABLE tipo_de_pro ADD CONSTRAINT tipo_de_pro_pk PRIMARY KEY ( id_producto );
+
+CREATE TABLE tipo_de_usu (
+    id_tip_us          VARCHAR2(20) NOT NULL,
+    cliente            VARCHAR2(20) NOT NULL,
+    trabajador         VARCHAR2(20) NOT NULL,
+    usuario_usuario_id NUMBER NOT NULL
+);
+
+ALTER TABLE tipo_de_usu ADD CONSTRAINT tipo_de_usu_pk PRIMARY KEY ( id_tip_us );
+
+CREATE TABLE usuario (
+    rut           NUMBER(20, 20) NOT NULL,
+    nombre        VARCHAR2(20) NOT NULL,
+    apellido      VARCHAR2(20),
+    direccion     VARCHAR2(20) NOT NULL,
+    correo        VARCHAR2(20) NOT NULL,
+    fecha_de_naci DATE NOT NULL,
+    dv            VARCHAR2(10) NOT NULL,
+    usuario_id    NUMBER NOT NULL
+);
+
+ALTER TABLE usuario ADD CONSTRAINT usuario_pk PRIMARY KEY ( usuario_id );
+
+CREATE TABLE venta (
+    id_venta           VARCHAR2(20) NOT NULL,
+    total              NUMBER(20, 20) NOT NULL,
+    neto               NUMBER(20, 20) NOT NULL,
+    usuario_usuario_id NUMBER NOT NULL,
+    envio_envio_id     NUMBER NOT NULL
+);
+
+CREATE UNIQUE INDEX venta__idx ON
+    venta (
+        envio_envio_id
+    ASC );
+
+ALTER TABLE venta ADD CONSTRAINT venta_pk PRIMARY KEY ( id_venta );
+
+ALTER TABLE detalle
+    ADD CONSTRAINT detalle_producto_fk FOREIGN KEY ( producto_id_producto )
+        REFERENCES producto ( id_producto );
+
+ALTER TABLE detalle
+    ADD CONSTRAINT detalle_venta_fk FOREIGN KEY ( venta_id_venta )
+        REFERENCES venta ( id_venta );
+
+ALTER TABLE envio
+    ADD CONSTRAINT envio_venta_fk FOREIGN KEY ( venta_id_venta )
+        REFERENCES venta ( id_venta );
+
+ALTER TABLE medio_de_pago
+    ADD CONSTRAINT medio_de_pago_venta_fk FOREIGN KEY ( venta_id_venta )
+        REFERENCES venta ( id_venta );
+
+ALTER TABLE tipo_de_pro
+    ADD CONSTRAINT tipo_de_pro_producto_fk FOREIGN KEY ( producto_id_producto )
+        REFERENCES producto ( id_producto );
+
+ALTER TABLE tipo_de_usu
+    ADD CONSTRAINT tipo_de_usu_usuario_fk FOREIGN KEY ( usuario_usuario_id )
+        REFERENCES usuario ( usuario_id );
+
+ALTER TABLE venta
+    ADD CONSTRAINT venta_envio_fk FOREIGN KEY ( envio_envio_id )
+        REFERENCES envio ( envio_id );
+
+ALTER TABLE venta
+    ADD CONSTRAINT venta_usuario_fk FOREIGN KEY ( usuario_usuario_id )
+        REFERENCES usuario ( usuario_id );
+
+CREATE SEQUENCE envio_envio_ID_SEQ 
+START WITH 1 
+    NOCACHE 
+    ORDER ;
+
+CREATE OR REPLACE TRIGGER envio_envio_ID_TRG 
+BEFORE INSERT ON envio 
+FOR EACH ROW 
+WHEN (NEW.envio_ID IS NULL) 
+BEGIN
+:new.envio_id := envio_envio_id_seq.nextval;
+
+end;
+/
+
+CREATE SEQUENCE usuario_usuario_ID_SEQ 
+START WITH 1 
+    NOCACHE 
+    ORDER ;
+
+CREATE OR REPLACE TRIGGER usuario_usuario_ID_TRG 
+BEFORE INSERT ON usuario 
+FOR EACH ROW 
+WHEN (NEW.usuario_ID IS NULL) 
+BEGIN
+:new.usuario_id := usuario_usuario_id_seq.nextval;
+
+end;
+/
