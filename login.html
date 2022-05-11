@@ -22,11 +22,13 @@
               {
                 alert("Debe especificar el rut");
                 $(".txtRut").focus();
+                return false;
               }
               else if(!clave)
 			        {
 				        alert("Debe especificar la contraseña");
 				        $(".txtClave").focus();
+                return false;
 			        }  
 			      });
           let digitosrut = '0123456789Kk';
@@ -68,8 +70,8 @@
       </div>
       <!--Login-->
       <form class="d-flex">
-        <a class="btn btn-outline-light " href="login.html" role="button" type="submit">
-              Iniciar Sesión
+        <a class="btn btn-outline-light " href="admin.html" role="button" type="submit">
+              Iniciar Admin
 
             <span class="badge bg-dark text-white ms-1 rounded-pill"></span>
         </a>
@@ -135,7 +137,7 @@
                 </div>
                   <div class="col-md-6">
                     <button type="submit" class="btnEnviar btn btn-primary ms-auto ">
-                        <a href="formular.html" class="text-light">Iniciar Sesión</a>
+                      <a href="principalconcuenta.html" class="text-light">Iniciar Sesión</a>
                     </button>
                   </div>
                     <div class="row mt-3">
