@@ -25,7 +25,9 @@
               if(!rut)
               {
                   alert("Puede que el Rut sea incorrecto");
-                  $(".txtRut").focus();                
+                  $(".txtRut").focus(); 
+                  return false;
+
               }
               else if($(".txtGmail").val().indexOf('@', 0) == -1 || $(".txtGmail").val().indexOf('.', 0) == -1)
               {
@@ -36,6 +38,7 @@
               {
                   alert("Puede que la Contraseña sea incorrecto");
                   $(".txtClave").focus();
+                  return false;
                 }  
           });
             let numeros = '0123456789Kk';
@@ -75,9 +78,6 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="formulario.html">Suscripción</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="login.html">Login</a>
               </li>
             </ul>
           </div>
@@ -141,8 +141,12 @@
             <div style="color:white" class="col-12 col-md-3 offset-md-2">
             </div>
             <div class="col-12 col-md-5">
-                <button type="submit" class="btnEnviar btn btn-primary ms-auto">Enviar</button>
-                <button type="reset" class="btnLimpiar btn btn-danger ms-auto ">Limpiar</button>
+                <button type="submit" class="btnEnviar btn btn-primary ms-auto">
+                  <a href="formular.html" class="text-light">Iniciar Sesión</a>
+                </button>
+                <button type="reset" class="btnLimpiar btn btn-danger ms-auto ">
+                  <a href="login.html" class="text-light">Volver</a>
+                </button>
             </div>
         </div>
         <hr>
