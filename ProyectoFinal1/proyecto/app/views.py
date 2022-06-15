@@ -8,8 +8,8 @@ from django.contrib import messages
 def home(request):
     return render(request, 'app/home.html')
 
-def contacto(request):
-    return render(request, 'app/contacto.html')
+def productos(request):
+    return render(request, 'app/productos.html')
 
 def galeria(request):
     return render(request, 'app/galeria.html')

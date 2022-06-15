@@ -28,7 +28,7 @@
                         <a href="{% url 'home' %}"> Inicio </a>
                     </li>
                     <li>
-                        <a href="{% url 'contacto' %}">Contacto</a>
+                        <a href="{% url 'productos' %}">Productos</a>
                     </li>
                     <li>
                         <a href="{% url 'galeria' %}">Galería</a>
@@ -39,6 +39,7 @@
                     <li>
                         <a href="{% url 'listar_productos' %}">Listar Productos</a>
                     </li>
+                    
                     {% if user.is_authenticated %}
                     <li>
                         <a href="{% url 'logout' %}">Cerrar sesion</a>
@@ -48,7 +49,7 @@
                     </li>
                     {% else %}
                     <li>
-                        <a href="{% url 'login' %}">iniciar sesion</a>
+                        <a href="{% url 'login' %}">Iniciar Sesión</a>
                     </li>
                     <li>
                         <a href="{% url 'registro' %}">Registro</a>
