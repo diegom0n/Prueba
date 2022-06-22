@@ -1,0 +1,118 @@
+{% extends "plantillaBase.html" %}
+
+{% block tituloPestana %}
+    Tu Jardín
+{% endblock %}
+
+{% block tituloPagina %}
+
+{% endblock %}
+
+{% block mensajes %} 
+{% if mensaje %}
+    <div class="alert alert-success" role="alert">
+        {{ mensaje }}
+    </div>
+{% elif error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block contenido %}
+<br>
+<!-- Page content-->
+
+<section class="py-5">
+    <div class="container px-4 px-mb-5 px-lg-5  px-xl-5 mt-5">
+        <!-- Contact form-->
+        <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
+            <div class="text-center mb-5">
+
+                <h1 class="fw-bolder">Suscribete a Tu Jardín</h1>
+                <p class="lead fw-normal text-muted mb-0"></p>
+            </div>
+            <div class="row gx-5 justify-content-center">
+                <div class="col-lg-8 col-mb-5 col-xl-7 col-xxl-6">
+
+                    <form action="contact.html" method="post">
+                    <div class="row gx-5">
+                        <div class="input-group  mb-3">
+                            <span class="input-group-text">Nombre y Apellido</span>
+                            <input type="text" id="nombre" name="txtNombre" aria-label="NOMBRE" class="form-control" placeholder="Ej: Pedro" autofocus>
+                            <input type="text" id="apellido" name="txtApellido" aria-label="APELLIDO" class="form-control" placeholder="Ej: Quebedo" >
+                          </div>
+
+
+                        <!-- Run-->
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Run</span>
+                            <input id="run1" name="txtRun" type="text" aria-label="RUN" class="form-control" maxlength="8" size="7" minlength="8"placeholder="Ej: 21000341" >
+                            <input id="dv" name="txtDv" type="text" aria-label="DIGITO VERIFICADOR" class="form-control" maxlength="1" size="1" placeholder="Ej: k">
+                        </div>
+
+
+                        <!-- Email -->
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
+                            <input type="text" id="email" name="txtEmail" class="form-control" aria-label="Sizing example input" 
+                            aria-describedby="inputGroup-sizing-default" placeholder="ejemplo@mail.com">
+                        </div>
+
+
+                        <!-- Numero-->
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Celular</span>
+                            <input type="text" id="celular" name="txtCelular" class="form-control" aria-label="Sizing example input" 
+                            aria-describedby="inputGroup-sizing-default" minlength="9" maxlength="9" placeholder="Ej: 9 2715 9261">
+                        </div>
+                        <!--boton clo-->
+                        <div class="dropdown">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                              Medio de Pago
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="#">Debito</a></li>
+                              <li><a class="dropdown-item" href="#">Credito</a></li>
+                              <li><a class="dropdown-item" href="#">Transferencia</a></li>
+                            </ul>
+                          </div>
+                        
+                    </div>
+
+
+                <hr style="border:2px;">
+
+                <!-- Suscripcion -->
+
+                <h2 class="fw-normal mb-3 text-center">¿Deseas Suscribirte?</h2>
+                <p class="lead fst-italic text-muted mb-2 text-center">Suscribete con una donación para recibir
+                    descuentos en nuestra fundación
+                </p>
+                <div class="row mt-3">
+                    <div class="form-check form-switch mb-2 offset-md-1">
+                        <input class="form-check-input" type="checkbox" id="chkSuscripcion" name="chkSuscripcion">
+                        <label class="form-check-label" for="chkSuscripcion">¡Suscribete!</label>
+                    </div>
+
+                    <div class="form-switch mb-3 ">
+                        <input class="form-control" id="donacion" type="text" name="txtDonacion"
+                            placeholder="Si deseas ingresa una donación" />
+                    </div>
+                </div>
+
+                <!-- Submit Button-->
+                <div class="d-grid"><button class="btn btn-primary btn-lg " id="btnEnviar" name="btnEnviar"
+                        type="submit">Enviar</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</section>
+
+{% endblock %}

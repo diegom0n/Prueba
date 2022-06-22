@@ -1,0 +1,63 @@
+{% extends "plantillaBase.html" %}
+
+{% block tituloPestana %}
+    Plantas - Tu Jardín
+{% endblock %}
+
+{% block tituloPagina %}
+
+{% endblock %}
+
+{% block mensajes %} 
+{% if mensaje %}
+    <div class="alert alert-success" role="alert">
+        {{ mensaje }}
+    </div>
+{% elif error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block contenido %}
+
+<!--   Tarjetas-->
+<div class="title-cards">
+    <h2 class="text-white">Plantas</h2>
+</div>
+<div class="container-card">
+
+    <div class="card">
+        <figure>
+            <img src="https://cdn.discordapp.com/attachments/882775474269478913/961111043692691476/unknown.png">
+        </figure>
+        <div class="contenido-card">
+            <h3>Dólar</h3>
+                <a href="{% url 'plaDolar' %}">Comprar</a>
+        </div>
+    </div>
+    <div class="card">
+        <figure>
+            <img src="https://media.admagazine.com/photos/618a673669ed46faf86e32bb/master/w_1600,c_limit/66820.jpg">
+        </figure>
+        <div class="contenido-card">
+            <h3>Lavanda</h3>
+                <a href="{% url 'plaLavanda' %}">Comprar</a>
+        </div>
+    </div>
+    <div class="card">
+        <figure>
+            <img src="https://cdn.discordapp.com/attachments/882775474269478913/961112831401545728/unknown.png">
+        </figure>
+        <div class="contenido-card">
+            <h3>Lengua de Tigre</h3>
+                <a href="{% url 'plaLengua' %}">Comprar</a>
+        </div>
+    </div>
+</div>
+<!--Fin   Tarjetas-->
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+{% endblock %}

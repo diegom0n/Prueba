@@ -1,0 +1,88 @@
+{% extends "plantillaBase.html" %}
+
+{% block tituloPestana %}
+    Registro Marca - Tu Jardín
+{% endblock %}
+
+{% block tituloPagina %}
+
+{% endblock %}
+
+{% block mensajes %} 
+{% if mensaje %}
+    <div class="alert alert-success" role="alert">
+        {{ mensaje }}
+    </div>
+{% elif error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block contenido %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 off-md-4">
+            <div class="signup-form">
+                <form action="{% url 'marca' %}" method="POST" autocomplete="off" class="mt-5 border p-4 bg-light shadow">
+                    {% csrf_token %}
+                    <h3 class="mb-4">Registrar Marca</h3>
+                    <div class="mb-3 col-md-12">
+                        <input type="hidden" name="txtId" value="{{fila.id}}">
+                        <label for="txtNombre">Nombre de la Marca<span class="text-danger">*</span></label>
+                        <input type="text" id="txtNombre" name="txtNombre" placeholder="Ingrese el nombre del producto" class="txtNombre form-control" value="{{ fila.nombreMarca }}">
+                    </div>
+                    <div class="mb-3 col-md-12">
+                        <label class="form-check-label" for="chkActivo">Activo</label>
+                        <input type="checkbox" name="chkActivo" id="chkActivo" class="form-check-input" value="1" {% if fila.activoMarca %}{{ 'checked' }}{% endif %}>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4 mt-3">
+                        <input type="submit" name="btnCreate" class="btnCreate btn btn-outline-primary form-control" value="Registrar Marca">
+                      </div>
+                      <div class="col-md-4 mt-3">
+                        <input type="submit" name="btnRead" class="btnRead btn btn-outline-success form-control" value="Listar Marcas">
+                      </div>
+                      <div class="col-md-4 mt-3">
+                        <input type="submit" name="btnDelete" class="btnDelete btn btn-outline-danger form-control" value="Eliminar Marca">
+                      </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br><br><br><br><br><br><br>
+
+{% endblock %}
+ 
+
+{% block listado %} 
+{% if listado %}
+<div class="text-center row mt-5">
+    <div class="col-12">
+        <table class="table table-dark table-hover">
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Activo</th>
+                <th>Editar</th>
+            </tr>
+{% for fila in listado %}
+            <tr>
+                <td>{{ fila.id }}</td>
+                <td>{{ fila.nombreMarca }}</td>
+                <td>{{ fila.activoMarca }}</td>
+                <td><a href="{% url 'marca' %}/{{ fila.id }}/">Editar</a></td>
+            </tr>
+{% endfor %}
+        </table>
+    </div>
+</div>
+{%endif%}
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock %}

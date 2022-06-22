@@ -1,0 +1,105 @@
+{% extends "plantillaBase.html" %}
+
+{% block tituloPestana %}
+    Tu Jardín
+{% endblock %}
+
+{% block tituloPagina %}
+
+{% endblock %}
+
+{% block mensajes %} 
+{% if mensaje %}
+    <div class="alert alert-success" role="alert">
+        {{ mensaje }}
+    </div>
+{% elif error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block contenido %}
+<br>
+    <!--Header-->
+    <header class="bg-white py-5 shadow-lg p-4 mb-4 bg-white">
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center justify-content-center">
+                <div class="col-lg-8 mb-5 col-xl-7 col-xxl-6">
+                    <div class="my-5 text-center text-xl-start mb-6">
+                        <h1 class="display-5 fw-bolder  mb-2" style="color: black;">Tu Jardín</h1>
+                        <p class="lead fw-normal text-50 mb-4">Todo referente a jardinería, lo encontrarás en este lugar.</p>
+    
+                    </div>
+                </div>
+    
+    
+                <div id="myCarousel" class="carousel slide col-xl-5 col-xs-6 d-xs-block mb-5 d-xl-block text-center" data-bs-ride="carousel">
+                    <!-- Carousel indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
+                        <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
+                        <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
+                        <li data-bs-target="#myCarousel" data-bs-slide-to="3"></li>
+                    </ol>
+                
+                    <!-- Wrapper for carousel items -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="https://cdn.bioguia.com/embed/580a061e19a32cfaec60ba6471594252970/Diferentes-macetas-con-varios-tipos-de-lechuga-verde-y-morada.jpg?imagick=1&size=750" class="d-block w-100" alt="Slide 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://www.elciudadano.com/wp-content/uploads/2021/08/carpincho.jpeg" class="d-block w-100" alt="Slide 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://i1.wp.com/sabordelobueno.com/wp-content/uploads/2017/06/mercado-flores-paris.jpg?ssl=1" class="d-block w-100" alt="Slide 3">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://i.ytimg.com/vi/92WM2PyU4d4/maxresdefault.jpg" class="d-block w-100" alt="Slide 4">
+                        </div>
+                    </div>
+                
+                    <!-- Carousel controls -->
+                    <a class="carousel-control-prev" href="#myCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#myCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+                </div>
+    
+               
+            </div>
+            <hr style="border:2px;">
+        </div>
+    
+    </header>
+
+    <div class="container-fluid mt-4">
+        <div class="row offset-md-1 m-1 p-1">
+            <div class="card col-md-2 offset-md-1 p-1" style="width: 18rem;">
+                <img src="https://cdn.discordapp.com/attachments/882775474269478913/961111043692691476/unknown.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Es una planta perenne y aromática que alcanza una altura de entre 10 a 30 cm y se extiende alrededor de 60 cm. Los tallos decumbentes, pelosos con tricomas antrorsos y glándulas sésiles rojas. Las hojas, ampliamente dentadas, son carnosas, redondeadas de entre 64 a 90 mm, de envés púrpura y peloso con glándulas sésiles rojizas y haz verde brillante, la base cuneada, el ápice redondeado; peciolos 5-7 mm.1​</p>
+                    <a href="{% url 'plaDolar' %}" class="btn btn-success">Ver producto</a>
+                </div>
+            </div>
+            <div class="card col-md-2 offset-md-1 p-1" style="width: 18rem;">
+                <img src="https://media.admagazine.com/photos/618a673669ed46faf86e32bb/master/w_1600,c_limit/66820.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Son plantas sufruticosas, perennes de tallos de sección cuadrangular, generalmente muy foliosos en la parte inferior, con hojas de estrechamente lanceoladas a anchamente elípticas, enteras, dentadas o varias veces divididas, con pelos simples, ramificados y glandulíferos. La inflorescencia es espiciforme, formada por verticilastros más o menos próximos, con frecuencia con largos escapos. </p>
+                    <a href="{% url 'plaLavanda' %}" class="btn btn-success">Ver producto</a>
+                </div>
+            </div>
+            <div class="card col-md-2 offset-md-1 p-1" style="width: 18rem;">
+              <img src="https://cdn.discordapp.com/attachments/882775474269478913/961112831401545728/unknown.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-text">Sansevieria trifasciata es una planta semisuculenta que crece en rosetas basales y verticales, las hojas son erectas, lanceoladas, agudas y rígidas, de 40 a 140 cm de largo y unos 4 a 10 cm de ancho. De diferentes colores y patrones según la variedad, siendo la más común de color verde oscuro con líneas transversales de verde más pálido, los márgenes enteros, verdes o a veces amarillos.  </p>
+                <a href="{% url 'plaLengua' %}" class="btn btn-success">Ver producto</a>
+              </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends "plantillaBase.html" %}
+
+{% block tituloPestana %}
+    Tu Jardín
+{% endblock %}
+
+{% block tituloPagina %}
+
+{% endblock %}
+
+{% block mensajes %} 
+{% if mensaje %}
+    <div class="alert alert-success" role="alert">
+        {{ mensaje }}
+    </div>
+{% elif error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block contenido %}
+
+<br>
+<section class="h-100">
+    <div class="container h-100">
+        <div class="row justify-content-sm-center h-100">
+            <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+    
+                
+                <br>
+                <br>
+                <div class="card shadow-lg">
+                    <div class="card-body p-5">
+                        <h1 class="fs-4 card-title fw-bold mb-4">Registro Empleado</h1>
+                        <form method="POST" class="needs-validation" novalidate="" autocomplete="off">
+                            <div class="mb-3">
+                                <label class="mb-2 text-muted" for="name">Nombre de Usuario</label>
+                                <input  id="name" type="text" class="form-control" name="name" value="" required autofocus>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="mb-2 text-muted" for="email">Run </label>
+                                <input maxlength="8" size="7" id="run" type="text" class="form-control" name="txtRun" value="" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="mb-2 text-muted" for="email">Digito Verificador </label>
+                                <input maxlength="1" size="1" id="dv" name="txtDv" type="text"class="form-control"  value="" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="mb-2 text-muted" for="email">E-Mail </label>
+                                <input id="email" type="email" class="form-control" name="email" value="" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="mb-2 text-muted" for="password">Contraseña</label>
+                                <input id="password" type="password" maxlength="6" class="form-control" name="password" required>
+                            </div>
+
+                            <p class="form-text text-muted mb-3">
+                                Al registrarte estás de acuerdo con nuestros términos y condiciones.
+                            </p>
+
+                            <div class="align-items-center d-flex">
+                                <button name="btnEnviar" id="btnEnviar" type="submit" class="btn btn-primary ms-auto">
+                                    Registrarse	
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer py-3 border-0">
+                        <div class="text-center">
+                            ¿Ya tienes una cuenta? <a href="{% url 'EmpLogin' %}" class="text-dark">Iniciar Sesión</a>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</section>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+{% endblock %}

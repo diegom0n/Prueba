@@ -1,0 +1,52 @@
+{% extends "plantillaBase.html" %}
+
+{% block tituloPestana %}
+    Tu Jardín
+{% endblock %}
+
+{% block tituloPagina %}
+
+{% endblock %}
+
+{% block mensajes %} 
+{% if mensaje %}
+    <div class="alert alert-success" role="alert">
+        {{ mensaje }}
+    </div>
+{% elif error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block contenido %}
+
+<!-- Product section-->
+<section class="py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://media.admagazine.com/photos/618a673669ed46faf86e32bb/master/w_1600,c_limit/66820.jpg" alt="..." /></div>
+            <div class="col-md-6">
+                <div class="small mb-1"></div>
+                <h1 class="display-5 fw-bolder text-white">Lavanda</h1>
+                <div class="fs-5 mb-5">
+                    <span class="text-decoration-line-through" style="color: white;">$10.000</span>
+                    <span style="color: white;">$8.500</span>
+                </div>
+                <p class="lead" style="color: white;">Son plantas sufruticosas, perennes de tallos de sección cuadrangular, generalmente muy foliosos en la parte inferior, con hojas de estrechamente lanceoladas a anchamente elípticas, enteras, dentadas o varias veces divididas, con pelos simples, ramificados y glandulíferos. La inflorescencia es espiciforme, formada por verticilastros más o menos próximos, con frecuencia con largos escapos. </p>
+                <div class="d-flex">
+                    <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
+                    <button class="btn btn-outline-light flex-shrink-0" type="button">
+                        <i class="bi-cart-fill me-1"></i>
+                        Añadir al Carro
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "plantillaBase.html" %}
+
+{% block tituloPestana %}
+    Registrar Tipo de Pago - Tu Jardín
+{% endblock %}
+
+{% block tituloPagina %}
+
+{% endblock %}
+
+{% block mensajes %} 
+{% if mensaje %}
+    <div class="alert alert-success" role="alert">
+        {{ mensaje }}
+    </div>
+{% elif error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block contenido %}
+
+
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "plantillaBase.html" %}
+
+{% block tituloPestana %}
+    Herramientas - Tu Jardín
+{% endblock %}
+
+{% block tituloPagina %}
+
+{% endblock %}
+
+{% block mensajes %} 
+{% if mensaje %}
+    <div class="alert alert-success" role="alert">
+        {{ mensaje }}
+    </div>
+{% elif error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block contenido %}
+
+<!--   Tarjetas-->
+<div class="title-cards">
+    <h2 class="text-white">Herramientas</h2>
+</div>
+<div class="container-card">
+
+    <div class="card">
+        <figure>
+            <img src="https://cdn.discordapp.com/attachments/882775474269478913/961129785633935370/unknown.png">
+        </figure>
+        <div class="contenido-card">
+            <h3>Set Pequeño</h3>
+                <a href="{% url 'herrPeque' %}">Comprar</a>
+        </div>
+    </div>
+    <div class="card">
+        <figure>
+            <img src="https://cdn.discordapp.com/attachments/882775474269478913/961130198793850911/unknown.png">
+        </figure>
+        <div class="contenido-card">
+            <h3>Set Grande</h3>
+                <a href="{% url 'herrGrande' %}">Comprar</a>
+        </div>
+    </div>
+    <div class="card">
+        <figure>
+            <img src="https://cdn.discordapp.com/attachments/882775474269478913/961130330721509386/unknown.png">
+        </figure>
+        <div class="contenido-card">
+            <h3>Tijeras de Podar</h3>
+                <a href="{% url 'herrTijera' %}">Comprar</a>
+        </div>
+    </div>
+</div>
+<!--Fin   Tarjetas-->
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock %}

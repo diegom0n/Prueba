@@ -1,0 +1,63 @@
+{% extends "plantillaBase.html" %}
+
+{% block tituloPestana %}
+    Maceteros - Tu Jardín
+{% endblock %}
+
+{% block tituloPagina %}
+
+{% endblock %}
+
+{% block mensajes %} 
+{% if mensaje %}
+    <div class="alert alert-success" role="alert">
+        {{ mensaje }}
+    </div>
+{% elif error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block contenido %}
+
+<!--   Tarjetas-->
+    <div class="title-cards">
+        <h2 class="text-white">Maceteros</h2>
+    </div>
+    <div class="container-card">
+  
+        <div class="card">
+            <figure>
+                <img src="https://cdn.discordapp.com/attachments/882775474269478913/961110733125455882/unknown.png">
+            </figure>
+            <div class="contenido-card">
+                <h3>Jardinera</h3>
+                    <a href="{% url 'macJardinera' %}">Comprar</a>
+            </div>
+        </div>
+        <div class="card">
+            <figure>
+                <img src="https://cdn.discordapp.com/attachments/882775474269478913/961110448936218664/unknown.png">
+            </figure>
+            <div class="contenido-card">
+                <h3>Macetero Redondo</h3>
+                    <a href="{% url 'macRedondo' %}">Comprar</a>
+            </div>
+        </div>
+        <div class="card">
+            <figure>
+                <img src="https://cdn.discordapp.com/attachments/882775474269478913/961109837960319067/unknown.png">
+            </figure>
+            <div class="contenido-card">
+                <h3>Macetero Moderno</h3>
+                    <a href="{% url 'macModerno' %}">Comprar</a>
+            </div>
+        </div>
+    </div>
+<!--Fin   Tarjetas-->
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+{% endblock %}
